@@ -20,15 +20,32 @@
         <h2 class="subtitle">Your personal day tracker</h2>
 
         <div class="login-box">
-            <label for="username" class="label">Username:</label>
-            <input type="text" id="username" class="input-box">
+            <form id="auth-form" action="{{url_for('login')}}" method="POST">
+                <label for="username" class="label">Username:</label>
+                <input type="text" id="username" name="username" class="input-box">
 
-            <label for="password" class="label">Password:</label>
-            <input type="password" id="password" class="input-box">
+                <label for="password" class="label">Password:</label>
+                <input type="password" id="password" name="password" class="input-box">
 
-            <button class="sign-in">Sign In</button>
-            <p class="create-account">Create an account</p>
+                <button type="submit" class="sign-in" onclick="setActionForm('login')">Sign In</button>
+            </form>
+            <button type="button" class="create-account" onclick="setActionForm('register')">Create an account</button>
         </div>
     </div>
+    <script>
+        function setActionForm(action) {
+            var form = document.getElementById('auth-form');  // Fix: Select the form
+            if (action === 'login') {
+                form.action = "{{ url_for('login') }}";
+                form.method = "POST";
+            } else {
+                form.action = "{{ url_for('register') }}";
+                form.method = "POST";
+            }
+            form.submit();  // Fix: Submit the form after setting action
+        }
+    </script>
+    
 </body>
 </html>
+

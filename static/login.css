@@ -37,3 +37,18 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+.create-account {
+    padding: 10px 20px;
+    background-color: #008CBA; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: block; /* Makes it full-width if needed */
+    margin: 10px auto; /* Centers it */
+}
+
+.create-account:hover {
+    background-color: #0073a6; /* Darker blue on hover */
+}
